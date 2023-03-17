@@ -10,10 +10,22 @@ class SecondComponet extends React.Component{
             age : Math.floor((Math.random() * 100) + 1)
         })
     }
+    handleOnchange = (event) => {
+        this.setState({
+            name : event.target.value
+        })
+    }
+    handleOnsubmit = (event) => {
+        event.preventDefault()
+        console.log(this.state)
+    }
     render(){
         return (
             <div>My name is {this.state.name} and I'm {this.state.age}
-                <button onClick={(event) => {this.handleClick(event)}} >Click2</button>
+            <form onSubmit={(event) => {this.handleOnsubmit(event)}} >
+                <input type="text" onChange={(event) => {this.handleOnchange(event)}} ></input>
+                <button type="submit" >Submit</button>
+            </form>
             </div>
             
         );
