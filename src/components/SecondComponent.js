@@ -5,9 +5,17 @@ class SecondComponet extends React.Component{
         name : 'khanh',
         age : 22
     }
+    handleClick(event){
+        this.setState({
+            age : Math.floor((Math.random() * 100) + 1)
+        })
+    }
     render(){
         return (
-            <div>My name is {this.state.name} and I'm {this.state.age}</div>
+            <div>My name is {this.state.name} and I'm {this.state.age}
+                <button onClick={(event) => {this.handleClick(event)}} >Click2</button>
+            </div>
+            
         );
     }
 }

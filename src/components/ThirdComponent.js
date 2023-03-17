@@ -6,12 +6,15 @@ class ThirdComponent extends React.Component{
         passion : "chill at home"
     }
     handleClick(event){
+        this.setState({
+            passion : "playing video game"
+        })
         console.log(event.target)
     }
     render(){
         return (
             <div>My hobbit is {this.state.hobbit} and my passion is {this.state.passion}
-                <button onClick={this.handleClick} >Click Me!</button>
+                <button onClick={(event) => {this.handleClick(event)}} >Click Me!</button>
             </div>
         );
     }
