@@ -3,17 +3,22 @@ import DisplayInfor from "./DisplayInfor";
 import UserInfor from "./UserInfor";
 
 class SecondComponet extends React.Component{
+    state = {
+        listUser : [{ id : 1,name : 'khanh' , age : 22},{id : 2, name : 'dep' , age : 22},{id : 3, name : 'trai' , age : 22}]
+    }
+    handleAddUser = (user) => {
+        this.setState({
+            listUser : [...this.state.listUser,user]
+        })
+    }
    
     render(){
-        const infor = {
-            userList : [{ id : 1,name : 'khanh' , age : 22},{id : 2, name : 'dep' , age : 22},{id : 3, name : 'trai' , age : 22}]
-        }
+        console.log(this.state.listUser)
         return (
             <div>
-                <UserInfor ></UserInfor>
-                <DisplayInfor myInfor = {infor} ></DisplayInfor>
+                <UserInfor  handleAddUser = {this.handleAddUser}></UserInfor>
+                <DisplayInfor listUser = {this.state.listUser} ></DisplayInfor>
             </div>
-            
         );
     }
 }

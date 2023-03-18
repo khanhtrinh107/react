@@ -1,5 +1,5 @@
 
-import './App.css';
+import './App.scss';
 import MyComponent from './components/MyComponent';
 import SecondComponet from './components/SecondComponent';
 import ThirdComponent from './components/ThirdComponent';
