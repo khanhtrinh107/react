@@ -1,44 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 
-class UserInfor extends React.Component{
-    state = {
+const UserInfor = (props) => {
+    const [user , setUser] = useState({
         name : 'khanh',
         age : 22
-    }
-    handleClick(event){
-        this.setState({
-            age : Math.floor((Math.random() * 100) + 1)
-        })
-    }
-    handleOnchange = (event) => {
-        this.setState({
+    })
+    
+    const handleOnchange = (event) => {
+        setUser({
             name : event.target.value
         })
     }
-    handleOnchange2 = (event) => {
-        this.setState({
+    const handleOnchange2 = (event) => {
+        setUser({
             age : event.target.value
         })
     }
-    handleOnsubmit = (event) => {
+    const handleOnsubmit = (event) => {
         event.preventDefault()
-        this.props.handleAddUser({
+        props.handleAddUser({
             id : Math.floor((Math.random() * 100) + 1),
             name : this.state.name,
             age : this.state.age
         })
     }
-    render(){
-        return (
-            <div>My name is {this.state.name} and I'm {this.state.age}
-            <form onSubmit={(event) => {this.handleOnsubmit(event)}} >
-                <input value={this.state.name} type="text" onChange={(event) => {this.handleOnchange(event)}} ></input>
-                <input value={this.state.age} type = "text" onChange={(event) => {this.handleOnchange2(event)}} ></input>
-                <button type="submit" >Submit</button>
-            </form>
-            </div>
-        )
-    }
+    return (
+        <div>My name is {user.name} and I'm {user.age}
+        <form onSubmit={(event) => {handleOnsubmit(event)}} >
+            <input value={user.name} type="text" onChange={(event) => {handleOnchange(event)}} ></input>
+            <input value={user.age} type = "text" onChange={(event) => {handleOnchange2(event)}} ></input>
+            <button type="submit" >Submit</button>
+        </form>
+        </div>
+    )
 }
 
 export default UserInfor
