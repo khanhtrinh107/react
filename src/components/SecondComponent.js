@@ -11,13 +11,20 @@ class SecondComponet extends React.Component{
             listUser : [...this.state.listUser,user]
         })
     }
+    handleDelete = (userId) => {
+        let updateList = this.state.listUser
+        updateList = updateList.filter(item => item.id !== userId)
+        this.setState({
+            listUser : updateList
+        })
+    }
    
     render(){
         console.log(this.state.listUser)
         return (
             <div>
-                <UserInfor  handleAddUser = {this.handleAddUser}></UserInfor>
-                <DisplayInfor listUser = {this.state.listUser} ></DisplayInfor>
+                <UserInfor  handleAddUser = {this.handleAddUser}  ></UserInfor>
+                <DisplayInfor listUser = {this.state.listUser}  handleDelete = {this.handleDelete} ></DisplayInfor>
             </div>
         );
     }
