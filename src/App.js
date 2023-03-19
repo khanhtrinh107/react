@@ -3,12 +3,16 @@ import './App.scss';
 import MyComponent from './components/MyComponent';
 import SecondComponet from './components/SecondComponent';
 import ThirdComponent from './components/ThirdComponent';
+import Test from './components/Test';
+import EventDemo from './components/EventDemo';
 function App() {
   return (
     <div>Hello World
       <MyComponent></MyComponent>
       <SecondComponet></SecondComponet>
       <ThirdComponent></ThirdComponent>
+      <Test studentName = 'khanh' >deptrai</Test>
+      <EventDemo></EventDemo>
     </div>
     // <div className="App">
     //   <header className="App-header">
